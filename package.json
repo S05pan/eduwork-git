@@ -11,5 +11,9 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@cypress/browserify-preprocessor": "^3.0.2"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   }
 }
