@@ -1,47 +1,108 @@
 CREATE TABLE users (
-    user_id INT PRIMARY KEY,
-    NAME VARCHAR(100),
-    email VARCHAR(100),
-    phone VARCHAR(20),
-    gender VARCHAR(10),
-    address VARCHAR(255)
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    NAME VARCHAR(100) NOT NULL,
+    PASSWORD VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    ROLE VARCHAR(50),
+    STATUS VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO users (user_id, NAME, email, phone, gender, address) VALUES
-(1, 'Andi', 'andi@mail.com', '081234567001', 'Male', 'Jl. Melati No.1'),
-(2, 'Budi', 'budi@mail.com', '081234567002', 'Male', 'Jl. Mawar No.2'),
-(3, 'Citra', 'citra@mail.com', '081234567003', 'Female', 'Jl. Kenanga No.3'),
-(4, 'Dewi', 'dewi@mail.com', '081234567004', 'Female', 'Jl. Anggrek No.4'),
-(5, 'Eka', 'eka@mail.com', '081234567005', 'Male', 'Jl. Kamboja No.5'),
-(6, 'Fajar', 'fajar@mail.com', '081234567006', 'Male', 'Jl. Flamboyan No.6'),
-(7, 'Gina', 'gina@mail.com', '081234567007', 'Female', 'Jl. Teratai No.7'),
-(8, 'Hari', 'hari@mail.com', '081234567008', 'Male', 'Jl. Dahlia No.8'),
-(9, 'Intan', 'intan@mail.com', '081234567009', 'Female', 'Jl. Seroja No.9'),
-(10, 'Joko', 'joko@mail.com', '081234567010', 'Male', 'Jl. Anyelir No.10'),
-(11, 'Kiki', 'kiki@mail.com', '081234567011', 'Female', 'Jl. Mawar No.11'),
-(12, 'Lina', 'lina@mail.com', '081234567012', 'Female', 'Jl. Anggrek No.12'),
-(13, 'Mahdi', 'mahdi@mail.com', '081234567013', 'Male', 'Jl. Kamboja No.13'),
-(14, 'Nina', 'nina@mail.com', '081234567014', 'Female', 'Jl. Melati No.14'),
-(15, 'Omar', 'omar@mail.com', '081234567015', 'Male', 'Jl. Teratai No.15'),
-(16, 'Putri', 'putri@mail.com', '081234567016', 'Female', 'Jl. Kenanga No.16'),
-(17, 'Qori', 'qori@mail.com', '081234567017', 'Female', 'Jl. Flamboyan No.17'),
-(18, 'Rian', 'rian@mail.com', '081234567018', 'Male', 'Jl. Dahlia No.18'),
-(19, 'Sinta', 'sinta@mail.com', '081234567019', 'Female', 'Jl. Seroja No.19'),
-(20, 'Tono', 'tono@mail.com', '081234567020', 'Male', 'Jl. Anyelir No.20'),
-(21, 'Uli', 'uli@mail.com', '081234567021', 'Female', 'Jl. Mawar No.21'),
-(22, 'Vino', 'vino@mail.com', '081234567022', 'Male', 'Jl. Anggrek No.22'),
-(23, 'Winda', 'winda@mail.com', '081234567023', 'Female', 'Jl. Kamboja No.23'),
-(24, 'Xena', 'xena@mail.com', '081234567024', 'Female', 'Jl. Melati No.24'),
-(25, 'Yuda', 'yuda@mail.com', '081234567025', 'Male', 'Jl. Teratai No.25'),
-(26, 'Zara', 'zara@mail.com', '081234567026', 'Female', 'Jl. Kenanga No.26'),
-(27, 'Arif', 'arif@mail.com', '081234567027', 'Male', 'Jl. Flamboyan No.27'),
-(28, 'Bella', 'bella@mail.com', '081234567028', 'Female', 'Jl. Dahlia No.28'),
-(29, 'Cahyo', 'cahyo@mail.com', '081234567029', 'Male', 'Jl. Seroja No.29'),
-(30, 'Dina', 'dina@mail.com', '081234567030', 'Female', 'Jl. Anyelir No.30');
+INSERT INTO users (email, NAME, PASSWORD, address, ROLE, STATUS, created_at, updated_at) VALUES
+('john.doe@email.com', 'John Doe', 'password123', 'Jl. Merdeka No.1', 'admin', 'active', NOW(), NOW()),
+('jane.smith@email.com', 'Jane Smith', 'pass456', 'Jl. Sudirman No.2', 'user', 'active', NOW(), NOW()),
+('budi.santoso@email.com', 'Budi Santoso', 'budi789', 'Jl. Diponegoro No.3', 'user', 'inactive', NOW(), NOW()),
+('siti.rahma@email.com', 'Siti Rahma', 'sitiRahma!', 'Jl. Gatot Subroto No.4', 'user', 'active', NOW(), NOW()),
+('agus.pratama@email.com', 'Agus Pratama', 'agus321', 'Jl. Ahmad Yani No.5', 'admin', 'active', NOW(), NOW()),
+('linda.wati@email.com', 'Linda Wati', 'lindaWati!', 'Jl. Imam Bonjol No.6', 'user', 'active', NOW(), NOW()),
+('michael.tan@email.com', 'Michael Tan', 'michaelTan!', 'Jl. Thamrin No.7', 'user', 'inactive', NOW(), NOW()),
+('nurul.hidayah@email.com', 'Nurul Hidayah', 'nurulHidayah!', 'Jl. Pemuda No.8', 'user', 'active', NOW(), NOW()),
+('andi.setiawan@email.com', 'Andi Setiawan', 'andiSetiawan!', 'Jl. Asia Afrika No.9', 'user', 'active', NOW(), NOW()),
+('vina.putri@email.com', 'Vina Putri', 'vinaPutri!', 'Jl. Braga No.10', 'user', 'active', NOW(), NOW());
+
+CREATE TABLE categories (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_id INTEGER,
+    CODE VARCHAR(100),
+    NAME VARCHAR(255),
+    slug VARCHAR(255),
+    DESCRIPTION TEXT,
+    STATUS VARCHAR(50),
+    photo VARCHAR(255),
+    CONSTRAINT fk_categories_user
+        FOREIGN KEY (user_id) REFERENCES users(id)
+        ON UPDATE CASCADE ON DELETE SET NULL
+);
+
+INSERT INTO categories (user_id, CODE, NAME, slug, DESCRIPTION, STATUS, photo) VALUES
+(1, 'CAT001', 'Elektronik', 'elektronik', 'Kategori barang-barang elektronik', 'active', 'elektronik.jpg'),
+(2, 'CAT002', 'Pakaian', 'pakaian', 'Kategori berbagai jenis pakaian', 'active', 'pakaian.jpg'),
+(3, 'CAT003', 'Makanan', 'makanan', 'Kategori makanan dan minuman', 'active', 'makanan.jpg'),
+(4, 'CAT004', 'Buku', 'buku', 'Kategori buku dan alat tulis', 'active', 'buku.jpg'),
+(5, 'CAT005', 'Olahraga', 'olahraga', 'Kategori perlengkapan olahraga', 'inactive', 'olahraga.jpg'),
+(1, 'CAT006', 'Kesehatan', 'kesehatan', 'Kategori alat kesehatan', 'active', 'kesehatan.jpg'),
+(2, 'CAT007', 'Rumah Tangga', 'rumah-tangga', 'Kategori kebutuhan rumah tangga', 'active', 'rumah_tangga.jpg'),
+(3, 'CAT008', 'Mainan', 'mainan', 'Kategori mainan anak-anak', 'inactive', 'mainan.jpg'),
+(4, 'CAT009', 'Aksesoris', 'aksesoris', 'Kategori aksesoris fashion', 'active', 'aksesoris.jpg'),
+(5, 'CAT010', 'Otomotif', 'otomotif', 'Kategori perlengkapan otomotif', 'active', 'otomotif.jpg');
+
+
+CREATE TABLE products (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    category_id INTEGER,
+    user_id INTEGER,
+    CODE VARCHAR(100),
+    NAME VARCHAR(255),
+    slug VARCHAR(255),
+    DESCRIPTION LONGTEXT,
+    photo VARCHAR(255),
+    qty DOUBLE,
+    unit VARCHAR(50),
+    price DOUBLE,
+    STATUS VARCHAR(50),
+    -- Foreign Key Constraints
+    CONSTRAINT fk_products_category
+        FOREIGN KEY (category_id) REFERENCES categories(id)
+        ON UPDATE CASCADE ON DELETE SET NULL,
+    CONSTRAINT fk_products_user
+        FOREIGN KEY (user_id) REFERENCES users(id)
+        ON UPDATE CASCADE ON DELETE SET NULL
+);
+
+INSERT INTO products (category_id, user_id, CODE, NAME, slug, DESCRIPTION, photo, qty, unit, price, STATUS) VALUES
+(1, 1, 'PRD001', 'Smartphone Samsung', 'smartphone-samsung', 'Smartphone Samsung terbaru dengan fitur canggih.', 'samsung.jpg', 50, 'unit', 3500000, 'active'),
+(2, 2, 'PRD002', 'Kaos Polos', 'kaos-polos', 'Kaos polos berbagai warna dan ukuran.', 'kaos.jpg', 200, 'pcs', 50000, 'active'),
+(3, 3, 'PRD003', 'Kopi Arabika', 'kopi-arabika', 'Kopi Arabika asli Indonesia, aroma khas.', 'kopi.jpg', 100, 'pak', 120000, 'active'),
+(4, 4, 'PRD004', 'Buku Novel', 'buku-novel', 'Novel best seller tahun ini.', 'novel.jpg', 75, 'pcs', 80000, 'active'),
+(5, 5, 'PRD005', 'Sepatu Lari', 'sepatu-lari', 'Sepatu lari ringan dan nyaman.', 'sepatu.jpg', 60, 'pasang', 400000, 'inactive'),
+(1, 2, 'PRD006', 'Headphone Bluetooth', 'headphone-bluetooth', 'Headphone wireless dengan suara jernih.', 'headphone.jpg', 40, 'unit', 250000, 'active'),
+(2, 3, 'PRD007', 'Jaket Jeans', 'jaket-jeans', 'Jaket jeans trendy untuk anak muda.', 'jaket.jpg', 80, 'pcs', 150000, 'active'),
+(3, 4, 'PRD008', 'Teh Hijau', 'teh-hijau', 'Teh hijau alami untuk kesehatan.', 'teh.jpg', 120, 'pak', 60000, 'active'),
+(4, 5, 'PRD009', 'Pensil Warna', 'pensil-warna', 'Pensil warna isi 12 untuk anak-anak.', 'pensil.jpg', 90, 'box', 30000, 'active'),
+(5, 1, 'PRD010', 'Bola Sepak', 'bola-sepak', 'Bola sepak standar internasional.', 'bola.jpg', 30, 'pcs', 180000, 'active');
+
 
 SELECT 
-    NAME AS Nama_Lengkap,
-    phone AS Nomor_Telepon,
-    address AS Alamat
-FROM users;
+    products.id AS product_id,
+    products.name AS product_name,
+    products.code AS product_code,
+    products.qty,
+    products.unit,
+    products.price,
+    products.status AS product_status,
+    categories.id AS category_id,
+    categories.name AS category_name,
+    categories.code AS category_code,
+    categories.status AS category_status,
+    users.id AS user_id,
+    users.name AS user_name,
+    users.email AS user_email,
+    users.role AS user_role
+FROM 
+    products
+LEFT JOIN categories ON products.category_id = categories.id
+LEFT JOIN users ON products.user_id = users.id;
+
 
